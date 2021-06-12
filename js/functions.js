@@ -13,6 +13,7 @@ $(function() {
     gardenCtx.globalCompositeOperation = "lighter";
     garden = new Garden(gardenCtx, gardenCanvas);
     setContentCss();
+    setMissubearSite();
 
     // renderLoop
     setInterval(function() {
