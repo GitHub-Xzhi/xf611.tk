@@ -44,7 +44,7 @@
             <div id="code">
                 <span class="comments">/**</span><br />
                 <span class="space" /><span class="comments">*2017-04-19</span><br />
-                <span class="space" /><span class="comments">*2017-06-11.</span><br />
+                <span class="space" /><span class="comments">*2017-06-11</span><br />
                 <span class="space" /><span class="comments">*/</span><br />
 
                 <span class="keyword">2017年4月19日13:00:13</span><br /> 我们因一道C语言的作业而相遇。
@@ -143,18 +143,20 @@
             $("#copyright").css("bottom", "10px");
             document.execCommand("stop");
         } else {
-            setMissubearSite();
-            console.log("loveHeartTop:",$('#loveHeart').offset().top, "content:",$('#content').offset().top);
+            setTimeout(function() {
+                setMissubearSite();
+                adjustCodePosition();
+            }, 50);
+
             setTimeout(function() {
                 startHeartAnimation();
             }, 5000);
 
             timeElapse(together);
-            setInterval(function() {
-                timeElapse(together);
-            }, 500);
+            // setInterval(function() {
+            //     timeElapse(together);
+            // }, 500);
 
-            adjustCodePosition();
             $("#code").typewriter();
         }
     </script>

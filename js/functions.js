@@ -13,7 +13,6 @@ $(function() {
     gardenCtx.globalCompositeOperation = "lighter";
     garden = new Garden(gardenCtx, gardenCanvas);
     setContentCss();
-    setMissubearSite();
 
     // renderLoop
     setInterval(function() {
@@ -123,7 +122,8 @@ function startHeartAnimation() {
 
 function timeElapse(date) {
 
-    var current = Date();
+    // var current = Date();
+    var current = new Date("2020/12/25 21:42:45");
     var seconds = (Date.parse(current) - Date.parse(date)) / 1000;
     var days = Math.floor(seconds / (3600 * 24));
     seconds = seconds % (3600 * 24);
@@ -177,7 +177,8 @@ var startDate = "/6/11 22:36:00";
  */
 function countDown() {
     //获取当前时间  
-    var nowDate = new Date();
+    // var nowDate = new Date();
+    var nowDate = new Date("2020/12/25 21:42:45");
     var nowTimestamp = nowDate.getTime();
     var nowYear = nowDate.getFullYear();
 	//周年纪念日时间戳
@@ -194,7 +195,7 @@ function countDown() {
     }
 
     //递归每秒调用countTime方法，显示动态时间效果  
-    setTimeout(countDown, 1000);
+    // setTimeout(countDown, 1000);
 }
 
 /**
