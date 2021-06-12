@@ -5,9 +5,6 @@ var clientHeight = $(window).height();
 
 $(function() {
     // setup garden
-    $loveHeart = $("#loveHeart");
-    var offsetX = $loveHeart.width() / 2;
-    var offsetY = $loveHeart.height() / 2 - 55;
     $garden = $("#garden");
     gardenCanvas = $garden[0];
     gardenCanvas.width = $("#loveHeart").width();
@@ -15,17 +12,45 @@ $(function() {
     gardenCtx = gardenCanvas.getContext("2d");
     gardenCtx.globalCompositeOperation = "lighter";
     garden = new Garden(gardenCtx, gardenCanvas);
-
-    $("#content").css("width", $loveHeart.width() + $("#code").width());
-    $("#content").css("height", Math.max($loveHeart.height(), $("#code").height()));
-    $("#content").css("margin-top", Math.max(($window.height() - $("#content").height()) / 2, 10));
-    $("#content").css("margin-left", Math.max(($window.width() - $("#content").width()) / 2, 10));
+    setContentCss();
 
     // renderLoop
     setInterval(function() {
         garden.render();
     }, Garden.options.growSpeed);
 });
+
+/**
+ * 设置content样式
+ */
+function setContentCss() {
+    $loveHeart = $("#loveHeart");
+    var offsetX = $loveHeart.width() / 2;
+    var offsetY = $loveHeart.height() / 2 - 55;
+    $("#content").css("width", $loveHeart.width() + $("#code").width());
+    $("#content").css("height", Math.max($loveHeart.height(), $("#code").height()));
+    $("#content").css("margin-top", Math.max(($window.height() - $("#content").height()) / 2, 10));
+    $("#content").css("margin-left", Math.max(($window.width() - $("#content").width()) / 2, 10));
+}
+
+/**
+ * 设置想念熊的位置
+ */
+function setMissubearSite() {
+    setContentCss();
+    var missubearWidth = $('#missubear').width();
+    var missubearHeight = $('#missubear').height();
+    var gardenWidth = $('#garden').width();
+    var loveHeartTop = $('#loveHeart').offset().top;
+    var loveHeartLeft = $('#loveHeart').offset().left;
+    if (loveHeartTop < missubearHeight) {
+        loveHeartTop = missubearHeight;
+    }
+    var missubearTop = loveHeartTop - missubearHeight+30;
+    var missubearLeft = loveHeartLeft+gardenWidth/2-missubearWidth/2;
+    $('#loveHeart').offset({ top: loveHeartTop, left: loveHeartLeft});
+    $('#missubear').offset({ top: missubearTop, left: missubearLeft});
+}
 
 $(window).resize(function() {
     var newWidth = $(window).width();
@@ -62,6 +87,7 @@ function startHeartAnimation() {
             garden.createRandomBloom(bloom[0], bloom[1]);
         }
         if (angle >= 30) {
+            $("#missubear").css("visibility","visible");
             clearInterval(animationTimer);
             showMessages();
         } else {
@@ -131,7 +157,8 @@ function adjustWordsPosition() {
 }
 
 function adjustCodePosition() {
-    $('#code').css("margin-top", ($("#garden").height() - $("#code").height()) / 2);
+    // $('#code').css("margin-top", ($("#garden").height() - $("#code").height()) / 2);
+    $('#code').offset({ top: $('#loveHeart').offset().top + 25});
 }
 
 function showLoveU() {

@@ -85,7 +85,7 @@
 
             </div>
             <div id="loveHeart">
-                <img class="missubear" src="img/missubear.gif" />
+                <img id="missubear" src="img/missubear.gif" />
                 <canvas id="garden"></canvas>
                 <div id="words">
                     <div id="messages">
@@ -143,6 +143,8 @@
             $("#copyright").css("bottom", "10px");
             document.execCommand("stop");
         } else {
+            setMissubearSite();
+            console.log("loveHeartTop:",$('#loveHeart').offset().top, "content:",$('#content').offset().top);
             setTimeout(function() {
                 startHeartAnimation();
             }, 5000);
