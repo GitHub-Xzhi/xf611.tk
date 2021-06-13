@@ -50,7 +50,8 @@ function setLoveHeartSite() {
 $(window).load(function() {
     missubearHeight = document.getElementById("missubear").offsetHeight;
     setLoveHeartSite();
-    console.log('missubearHeight>>>>---',missubearHeight)
+    adjustCodePosition()
+    console.log('--missubearHeight>>>>---',missubearHeight)
 });
 
 /**
@@ -60,11 +61,10 @@ function setMissubearSiteAndShow() {
     console.log('content',$content.offset().top,'loveHeartTop',loveHeartTop,'missubearHeight---',missubearHeight);
     var missubearTop = loveHeartTop - missubearHeight + 30;
     var missubearLeft = $loveHeart.offset().left + $garden.width() / 2 - $missubear.width() / 2;
-    // $missubear.offset({ top: missubearTop, left: missubearLeft });
-    // var missubearStyle = `top: ${missubearTopTmp - missubearHeight}px; left: ${missubearLeft}px; display: block;`;
-    var missubearStyle = `top: ${missubearTop}px; left: ${missubearLeft}px; visibility:visible;`;
-    document.getElementById("missubear").style = missubearStyle;
-    console.log('---',$missubear.offset().top);
+    $missubear.offset({ top: missubearTop, left: missubearLeft });
+    $missubear.css("visibility", "visible");
+    // var missubearStyle = `top: ${missubearTop}px; left: ${missubearLeft}px; visibility:visible;`;
+    // document.getElementById("missubear").style = missubearStyle;
 }
 
 $(window).resize(function() {
