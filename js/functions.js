@@ -54,6 +54,7 @@ function setLoveHeartSite() {
  * 设置想念熊的位置并显示
  */
 function setMissubearSiteAndShow() {
+    var missubearTopTmp = $content.offset().top;
     if ($content.offset().top < missubearHeight ) {
         var missubearTopTmp = missubearHeight;
     }
