@@ -6,13 +6,16 @@ var clientHeight = $(window).height();
 $(function() {
     // setup garden
     $garden = $("#garden");
+    $loveHeart = $("#loveHeart");
+    $missubear = $("#missubear");
+    $content = $("#content");
+
     gardenCanvas = $garden[0];
     gardenCanvas.width = $("#loveHeart").width();
     gardenCanvas.height = $("#loveHeart").height()
     gardenCtx = gardenCanvas.getContext("2d");
     gardenCtx.globalCompositeOperation = "lighter";
     garden = new Garden(gardenCtx, gardenCanvas);
-    // setContentCss();
 
     // renderLoop
     setInterval(function() {
@@ -24,11 +27,6 @@ $(function() {
  * 设置content样式
  */
 function setContentCss() {
-    $loveHeart = $("#loveHeart");
-    $missubear = $("#missubear");
-    $content = $("#content");
-    var offsetX = $loveHeart.width() / 2;
-    var offsetY = $loveHeart.height() / 2 - 55;
     $content.css("width", $loveHeart.width() + $("#code").width());
     $content.css("height", Math.max($loveHeart.height(), $("#code").height()));
     $content.css("margin-top", Math.max(($window.height() - $content.height()) / 2, 10));
@@ -49,6 +47,7 @@ function setLoveHeartSite() {
 
 $(window).load(function() {
     missubearHeight = document.getElementById("missubear").offsetHeight;
+    setContentCss();
     setLoveHeartSite();
     adjustCodePosition();
 });
