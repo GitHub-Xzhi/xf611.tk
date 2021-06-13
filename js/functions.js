@@ -50,21 +50,17 @@ function setLoveHeartSite() {
 $(window).load(function() {
     missubearHeight = document.getElementById("missubear").offsetHeight;
     setLoveHeartSite();
-    adjustCodePosition()
-    console.log('--missubearHeight>>>>---',missubearHeight)
+    adjustCodePosition();
 });
 
 /**
  * 设置想念熊的位置并显示
  */
 function setMissubearSiteAndShow() {
-    console.log('content',$content.offset().top,'loveHeartTop',loveHeartTop,'missubearHeight---',missubearHeight);
     var missubearTop = loveHeartTop - missubearHeight + 30;
     var missubearLeft = $loveHeart.offset().left + $garden.width() / 2 - $missubear.width() / 2;
     $missubear.offset({ top: missubearTop, left: missubearLeft });
     $missubear.css("visibility", "visible");
-    // var missubearStyle = `top: ${missubearTop}px; left: ${missubearLeft}px; visibility:visible;`;
-    // document.getElementById("missubear").style = missubearStyle;
 }
 
 $(window).resize(function() {
