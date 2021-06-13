@@ -61,8 +61,9 @@ function setMissubearSiteAndShow() {
     var missubearTop = missubearTopTmp - missubearHeight + 30;
     var missubearLeft = $loveHeart.offset().left + $garden.width() / 2 - $missubear.width() / 2;
     // $missubear.offset({ top: missubearTop, left: missubearLeft });
-    var missubearStyle = `top: ${missubearTop}px; left: ${missubearLeft}px; display: block;`;
+    var missubearStyle = `top: ${$content.offset().top}px; left: ${missubearLeft}px; display: block;`;
     document.getElementById("missubear").style = missubearStyle;
+    console.log('---',$missubear.offset().top);
 }
 
 $(window).resize(function() {
