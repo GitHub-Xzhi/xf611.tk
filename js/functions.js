@@ -12,7 +12,7 @@ $(function() {
     gardenCtx = gardenCanvas.getContext("2d");
     gardenCtx.globalCompositeOperation = "lighter";
     garden = new Garden(gardenCtx, gardenCanvas);
-    setContentCss();
+    // setContentCss();
 
     // renderLoop
     setInterval(function() {
@@ -87,6 +87,18 @@ function startHeartAnimation() {
             garden.createRandomBloom(bloom[0], bloom[1]);
         }
         if (angle >= 30) {
+            var missubearWidth = $('#missubear').width();
+            var missubearHeight = $('#missubear').height();
+            var gardenWidth = $('#garden').width();
+            var loveHeartTop = $('#loveHeart').offset().top;
+            var loveHeartLeft = $('#loveHeart').offset().left;
+            if (loveHeartTop < missubearHeight) {
+                loveHeartTop = missubearHeight;
+            }
+            var missubearTop = loveHeartTop - missubearHeight+30;
+            var missubearLeft = loveHeartLeft+gardenWidth/2-missubearWidth/2;
+            $('#missubear').offset({ top: missubearTop, left: missubearLeft});
+
             $("#missubear").css("visibility","visible");
             clearInterval(animationTimer);
             showMessages();
