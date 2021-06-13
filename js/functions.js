@@ -33,8 +33,6 @@ function setContentCss() {
     $content.css("height", Math.max($loveHeart.height(), $("#code").height()));
     $content.css("margin-top", Math.max(($window.height() - $content.height()) / 2, 10));
     $content.css("margin-left", Math.max(($window.width() - $content.width()) / 2, 10));
-
-    setLoveHeartSite();
 }
 
 /**
@@ -51,23 +49,20 @@ function setLoveHeartSite() {
 
 $(window).load(function() {
     missubearHeight = document.getElementById("missubear").offsetHeight;
-    console.log('missubearHeight>>>>',missubearHeight)
+    setLoveHeartSite();
+    console.log('missubearHeight>>>>---',missubearHeight)
 });
 
 /**
  * 设置想念熊的位置并显示
  */
 function setMissubearSiteAndShow() {
-    var missubearTopTmp = $content.offset().top + 30;
-    if ($content.offset().top < missubearHeight ) {
-        var missubearTopTmp = missubearHeight+30;
-    }
-    console.log('2021-06-13 23:52:13','content',$content.offset().top,'missubearTopTmp',missubearTopTmp,'missubearHeight---',missubearHeight);
-    var missubearTop = missubearTopTmp - missubearHeight + 30;
+    console.log('content',$content.offset().top,'loveHeartTop',loveHeartTop,'missubearHeight---',missubearHeight);
+    var missubearTop = loveHeartTop - missubearHeight + 30;
     var missubearLeft = $loveHeart.offset().left + $garden.width() / 2 - $missubear.width() / 2;
     // $missubear.offset({ top: missubearTop, left: missubearLeft });
     // var missubearStyle = `top: ${missubearTopTmp - missubearHeight}px; left: ${missubearLeft}px; display: block;`;
-    var missubearStyle = `top: ${missubearTopTmp - missubearHeight}px; left: ${missubearLeft}px; visibility:visible;`;
+    var missubearStyle = `top: ${missubearTop}px; left: ${missubearLeft}px; visibility:visible;`;
     document.getElementById("missubear").style = missubearStyle;
     console.log('---',$missubear.offset().top);
 }
