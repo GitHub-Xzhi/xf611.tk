@@ -59,7 +59,7 @@ function setMissubearSiteAndShow() {
     if ($content.offset().top < missubearHeight ) {
         var missubearTopTmp = missubearHeight+30;
     }
-    console.log(new Date(),'content',$content.offset().top,'missubearTopTmp',missubearTopTmp,'missubearHeight---',missubearHeight);
+    console.log('2021-06-13 23:52:13','content',$content.offset().top,'missubearTopTmp',missubearTopTmp,'missubearHeight---',missubearHeight);
     var missubearTop = missubearTopTmp - missubearHeight + 30;
     var missubearLeft = $loveHeart.offset().left + $garden.width() / 2 - $missubear.width() / 2;
     // $missubear.offset({ top: missubearTop, left: missubearLeft });
