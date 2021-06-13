@@ -26,12 +26,13 @@ $(function() {
 function setContentCss() {
     $loveHeart = $("#loveHeart");
     $missubear = $("#missubear");
+    $content = $("#content");
     var offsetX = $loveHeart.width() / 2;
     var offsetY = $loveHeart.height() / 2 - 55;
-    $("#content").css("width", $loveHeart.width() + $("#code").width());
-    $("#content").css("height", Math.max($loveHeart.height(), $("#code").height()));
-    $("#content").css("margin-top", Math.max(($window.height() - $("#content").height()) / 2, 10));
-    $("#content").css("margin-left", Math.max(($window.width() - $("#content").width()) / 2, 10));
+    $content.css("width", $loveHeart.width() + $("#code").width());
+    $content.css("height", Math.max($loveHeart.height(), $("#code").height()));
+    $content.css("margin-top", Math.max(($window.height() - $content.height()) / 2, 10));
+    $content.css("margin-left", Math.max(($window.width() - $content.width()) / 2, 10));
 
     setLoveHeartSite();
 }
@@ -53,7 +54,10 @@ function setLoveHeartSite() {
  * 设置想念熊的位置并显示
  */
 function setMissubearSiteAndShow() {
-    var missubearTop = $loveHeart.offset().top - missubearHeight + 30;
+    if ($content.offset().top < missubearHeight ) {
+        var missubearTopTmp = missubearHeight;
+    }
+    var missubearTop = missubearTopTmp - missubearHeight + 30;
     var missubearLeft = $loveHeart.offset().left + $garden.width() / 2 - $missubear.width() / 2;
     // $missubear.offset({ top: missubearTop, left: missubearLeft });
     var missubearStyle = `top: ${missubearTop}px; left: ${missubearLeft}px; display: block;`;
