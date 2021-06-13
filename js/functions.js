@@ -34,7 +34,7 @@ function setContentCss() {
     $("#content").css("margin-left", Math.max(($window.width() - $("#content").width()) / 2, 10));
 
     setLoveHeartSite();
-    setMissubearSiteAndShow();
+    setMissubearSite();
 }
 
 /**
@@ -51,13 +51,12 @@ function setLoveHeartSite() {
 }
 
 /**
- * 设置想念熊的位置并显示
+ * 设置想念熊的位置
  */
-function setMissubearSiteAndShow() {
+function setMissubearSite() {
     var missubearTop = loveHeartTop - missubearHeight + 30;
     var missubearLeft = loveHeartLeft + $garden.width() / 2 - $missubear.width() / 2;
     $missubear.offset({ top: missubearTop, left: missubearLeft });
-    
 }
 
 $(window).resize(function() {
@@ -95,7 +94,7 @@ function startHeartAnimation() {
             garden.createRandomBloom(bloom[0], bloom[1]);
         }
         if (angle >= 30) {
-            setMissubearSiteAndShow();
+            setMissubearSite();
             $missubear.css("visibility", "visible");
             clearInterval(animationTimer);
             showMessages();
