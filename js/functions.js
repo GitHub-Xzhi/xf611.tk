@@ -34,6 +34,7 @@ function setContentCss() {
     $("#content").css("margin-left", Math.max(($window.width() - $("#content").width()) / 2, 10));
 
     setLoveHeartSite();
+    setMissubearSiteAndShow();
 }
 
 /**
@@ -56,7 +57,7 @@ function setMissubearSiteAndShow() {
     var missubearTop = loveHeartTop - missubearHeight + 30;
     var missubearLeft = loveHeartLeft + $garden.width() / 2 - $missubear.width() / 2;
     $missubear.offset({ top: missubearTop, left: missubearLeft });
-    $missubear.css("visibility", "visible");
+    
 }
 
 $(window).resize(function() {
@@ -95,6 +96,7 @@ function startHeartAnimation() {
         }
         if (angle >= 30) {
             setMissubearSiteAndShow();
+            $missubear.css("visibility", "visible");
             clearInterval(animationTimer);
             showMessages();
         } else {

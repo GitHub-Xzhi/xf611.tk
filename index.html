@@ -24,7 +24,7 @@
 
     <embed src="mp3/Nothing's Going To Change My Love For You.mp3" hidden="true" autostart="true" loop="true" />
 
-    <div style="margin-top:8px;margin-left:8px">
+    <div id="countDownDiv" style="margin-top:8px;margin-left:8px">
         <span>距离我们的</span>
         <span id="yearCount" style="font-weight:bold;font-size:20px">1</span>
         <span style="font-weight:bold;font-size:20px">周年</span>
@@ -144,6 +144,7 @@
             document.execCommand("stop");
         } else {
             setTimeout(function() {
+                $("#countDownDiv").css("visibility", "visible");
                 setContentCss();
                 adjustCodePosition();
             }, 50);
