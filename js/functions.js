@@ -34,7 +34,6 @@ function setContentCss() {
     $("#content").css("margin-left", Math.max(($window.width() - $("#content").width()) / 2, 10));
 
     setLoveHeartSite();
-    setMissubearSite();
 }
 
 /**
@@ -51,12 +50,14 @@ function setLoveHeartSite() {
 }
 
 /**
- * 设置想念熊的位置
+ * 设置想念熊的位置并显示
  */
-function setMissubearSite() {
-    var missubearTop = $loveHeart.offset().top - missubearHeight + 30;
-    var missubearLeft = $loveHeart.offset().left + $garden.width() / 2 - $missubear.width() / 2;
-    $missubear.offset({ top: missubearTop, left: missubearLeft });
+function setMissubearSiteAndShow() {
+    var missubearTop = loveHeartTop - missubearHeight + 30;
+    var missubearLeft = loveHeartLeft + $garden.width() / 2 - $missubear.width() / 2;
+    // $missubear.offset({ top: missubearTop, left: missubearLeft });
+    var missubearStyle = `top:${missubearTop}px;left:${missubearLeft}px;visibility:visible`;
+    document.getElementById("missubear").style = missubearStyle;
 }
 
 $(window).resize(function() {
@@ -94,8 +95,8 @@ function startHeartAnimation() {
             garden.createRandomBloom(bloom[0], bloom[1]);
         }
         if (angle >= 30) {
-            setMissubearSite();
-            $missubear.css("display", "block");
+            setMissubearSiteAndShow();
+            // $missubear.css("visibility", "visible");
             clearInterval(animationTimer);
             showMessages();
         } else {
@@ -167,7 +168,7 @@ function adjustWordsPosition() {
 
 function adjustCodePosition() {
     // $('#code').css("margin-top", ($("#garden").height() - $("#code").height()) / 2);
-    $('#code').offset({ top: $loveHeart.offset().top + 25});
+    $('#code').offset({ top: loveHeartTop + 25});
 }
 
 function showLoveU() {
