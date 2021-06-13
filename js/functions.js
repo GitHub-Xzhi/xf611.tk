@@ -43,7 +43,8 @@ function setContentCss() {
 function setLoveHeartSite() {
     loveHeartTop = $loveHeart.offset().top;
     loveHeartLeft = $loveHeart.offset().left;
-    missubearHeight = $missubear.height();
+    // missubearHeight = $missubear.height();
+    missubearHeight = document.getElementById("missubear").offsetHeight;
     if (loveHeartTop < missubearHeight) {
         loveHeartTop = missubearHeight;
     }
