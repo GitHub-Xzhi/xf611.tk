@@ -54,14 +54,14 @@ function setLoveHeartSite() {
  * 设置想念熊的位置并显示
  */
 function setMissubearSiteAndShow() {
-    var missubearTopTmp = $content.offset().top;
+    var missubearTopTmp = $content.offset().top + 30;
     if ($content.offset().top < missubearHeight ) {
-        var missubearTopTmp = missubearHeight;
+        var missubearTopTmp = missubearHeight+30;
     }
     var missubearTop = missubearTopTmp - missubearHeight + 30;
     var missubearLeft = $loveHeart.offset().left + $garden.width() / 2 - $missubear.width() / 2;
     // $missubear.offset({ top: missubearTop, left: missubearLeft });
-    var missubearStyle = `top: ${$content.offset().top}px; left: ${missubearLeft}px; display: block;`;
+    var missubearStyle = `top: ${missubearTopTmp - missubearHeight}px; left: ${missubearLeft}px; display: block;`;
     document.getElementById("missubear").style = missubearStyle;
     console.log('---',$missubear.offset().top);
 }
