@@ -43,13 +43,16 @@ function setContentCss() {
 function setLoveHeartSite() {
     loveHeartTop = $loveHeart.offset().top;
     loveHeartLeft = $loveHeart.offset().left;
-    // missubearHeight = $missubear.height();
-    missubearHeight = document.getElementById("missubear").offsetHeight;
     if (loveHeartTop < missubearHeight) {
         loveHeartTop = missubearHeight;
     }
     $loveHeart.offset({ top: loveHeartTop, left: loveHeartLeft });
 }
+
+$(window).load(function() {
+    missubearHeight = document.getElementById("missubear").offsetHeight;
+    console.log('missubearHeight>>>>',missubearHeight)
+});
 
 /**
  * 设置想念熊的位置并显示
@@ -105,7 +108,6 @@ function startHeartAnimation() {
         }
         if (angle >= 30) {
             setMissubearSiteAndShow();
-            // $missubear.css("visibility", "visible");
             clearInterval(animationTimer);
             showMessages();
         } else {
