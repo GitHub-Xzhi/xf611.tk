@@ -95,7 +95,7 @@ function startHeartAnimation() {
         }
         if (angle >= 30) {
             setMissubearSite();
-            $missubear.css("visibility", "visible");
+            $missubear.css("display", "block");
             clearInterval(animationTimer);
             showMessages();
         } else {
