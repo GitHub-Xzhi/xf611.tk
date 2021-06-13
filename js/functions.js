@@ -54,8 +54,8 @@ function setLoveHeartSite() {
  * 设置想念熊的位置
  */
 function setMissubearSite() {
-    var missubearTop = loveHeartTop - missubearHeight + 30;
-    var missubearLeft = loveHeartLeft + $garden.width() / 2 - $missubear.width() / 2;
+    var missubearTop = $loveHeart.offset().top - missubearHeight + 30;
+    var missubearLeft = $loveHeart.offset().left + $garden.width() / 2 - $missubear.width() / 2;
     $missubear.offset({ top: missubearTop, left: missubearLeft });
 }
 
